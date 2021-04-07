@@ -74,10 +74,10 @@ class HomeState extends State<Home> {
               child: Icon(Icons.ad_units),
             ),
             title: Text(
-              this.itemList[index].name,
+              this.itemList[index].nama,
               style: textStyle,
             ),
-            subtitle: Text(this.itemList[index].price.toString()),
+            subtitle: Text(this.itemList[index].harga.toString()),
             trailing: GestureDetector(
               child: Icon(Icons.delete),
               onTap: () async {

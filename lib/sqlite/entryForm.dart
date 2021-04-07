@@ -12,17 +12,17 @@ class EntryForm extends StatefulWidget {
 class EntryFormState extends State<EntryForm> {
   Item item;
   EntryFormState(this.item);
-  TextEditingController nameController = TextEditingController();
+  TextEditingController namaController = TextEditingController();
   TextEditingController kategoriController = TextEditingController();
-  TextEditingController priceController = TextEditingController();
+  TextEditingController hargaController = TextEditingController();
   TextEditingController stokController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     //kondisi awal
     if (item != null) {
-      nameController.text = item.name;
+      namaController.text = item.nama;
       kategoriController.text = item.kategori;
-      priceController.text = item.price.toString();
+      hargaController.text = item.harga.toString();
       stokController.text = item.stok.toString();
     }
     //merubah data
@@ -43,7 +43,7 @@ class EntryFormState extends State<EntryForm> {
             Padding(
               padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
               child: TextField(
-                controller: nameController,
+                controller: namaController,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   labelText: 'Nama Barang',
@@ -77,7 +77,7 @@ class EntryFormState extends State<EntryForm> {
             Padding(
               padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
               child: TextField(
-                controller: priceController,
+                controller: hargaController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: 'Harga',
@@ -125,15 +125,15 @@ class EntryFormState extends State<EntryForm> {
                         if (item == null) {
                           // tambah data
                           item = Item(
-                              nameController.text,
+                              namaController.text,
                               kategoriController.text,
-                              int.parse(priceController.text),
+                              int.parse(hargaController.text),
                               int.parse(stokController.text));
                         } else {
                           // ubah data
-                          item.name = nameController.text;
+                          item.nama = namaController.text;
                           item.kategori = kategoriController.text;
-                          item.price = int.parse(priceController.text);
+                          item.harga = int.parse(hargaController.text);
                           item.stok = int.parse(stokController.text);
                         }
                         // kembali ke layar sebelumnya dengan membawa objek item
